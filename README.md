@@ -66,28 +66,7 @@ Not all Transformers are created equal. Depending on how we wire the attention b
 
 **Objective:** Go beyond the high-level `pipeline` and interact with specific model architectures for their designated tasks, with a deep dive into summarization.
 
-### Part A: The Encoder (Understanding Entities)
-* **Task:** Named Entity Recognition (NER) on legal or medical text.
-* **Model:** `BertForTokenClassification` (or similar).
-* **Activity:** Load a raw sentence. Instead of just getting the output, inspect how one word (e.g., "Apple") might be split into multiple tokens if it's rare, and how the Encoder assigns a label (like `B-ORG`) to each token individually.
-
-### Part B: The Decoder (Autoregressive Generation)
-* **Task:** Seeing probabilities in action.
-* **Model:** `GPT2LMHeadModel` (small, easy to run).
-* **Activity:** Give it the prompt "The best way to learn Python is".
-    * Don't just `.generate()`.
-    * Run one forward pass to get the *logits* for the next word.
-    * Use `torch.topk` to see the top 5 most probable next words and their percentage chances. This demystifies the "magic" of generation.
-
-### Part C: Deep Dive - Seq2Seq Summarization
-* **Task:** Summarizing long customer support chat logs.
-* **Model:** `T5` (Text-To-Text Transfer Transformer) or `BART`.
-* **Data Prep:** T5 specifically requires prefixing tasks. We must prepend "summarize: " to our input text so the model knows which specific task to perform (since T5 is multi-task).
-* **Generation Parameters (Crucial for quality):**
-    * Moving beyond default `.generate()`.
-    * **Beam Search:** Instead of just picking the single best next word (greedy), keep track of the top N most likely *sequences* of words. (Set `num_beams=4`).
-    * **Length Penalties:** Prevent the model from being too brief or rambling (`min_length=50`, `max_length=200`).
-    * *Hands-on:* Run summarization on the same text with `num_beams=1` (greedy) vs `num_beams=5` and compare the quality of the output.
+### Refer: [Summarizer in Action](https://git.generalassemb.ly/applied-ai-and-deep-learning-in-action/Lab-3_3-Summarizer-in-Action)
 
 ## 4. Wrap-Up and Reflection (10 min)
 
