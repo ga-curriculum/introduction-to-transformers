@@ -66,7 +66,7 @@ Not all Transformers are created equal. Depending on how we wire the attention b
 
 **Objective:** Go beyond the high-level `pipeline` and interact with specific model architectures for their designated tasks, with a deep dive into summarization.
 
-### Refer: [Summarizer in Action](https://git.generalassemb.ly/applied-ai-and-deep-learning-in-action/Lab-3_3-Summarizer-in-Action)
+### Refer: [Summarizer in Action](https://github.com/ga-curriculum/lab-3-3-summarizer-in-action)
 
 ## 4. Wrap-Up and Reflection (10 min)
 
